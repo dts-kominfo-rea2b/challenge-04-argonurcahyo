@@ -9,14 +9,14 @@ const dates = [
 
 // TODO: Buatlah fungsi createDate
 const createDate = (arrayDate, index = null) => {
-  timestamps = arrayDate.map((val)=>{
+  timestamps = arrayDate.map((val) => {
     let date = new Date(val);
-    return date.getTime();
+    return (date.getTime() / 1000).toString();
   });
-  if (!index) {
-    return timestamps.join("-");
+  if (index===null) {
+    return (timestamps.sort()).join("-");
   } else {
-    return timestamps[index];
+    return timestamps[index].toString();
   }
 };
 
@@ -29,6 +29,7 @@ const createDate = (arrayDate, index = null) => {
 
   // '1614841200' (dalam string)
   console.log(createDate?.(dates, 2));
+  
 })();
 
 module.exports = {
